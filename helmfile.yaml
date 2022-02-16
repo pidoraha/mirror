@@ -3,13 +3,14 @@ helmDefaults:
   createNamespace: false
   timeout: 600
 
+repositories:
+  - name: mirror
+    url: git+https://github.com/pidoraha/mirror@mirror?ref=master
+
 releases:
   - name: myrelease
-    chart: mychart
+    chart: mirror/mirror
     namespace: {{ .Values.namespace }}
-    labels:
-      app: automotive
-    condition: odoo.enabled
     disableValidation: true
     values:
-      {{- toYaml (list (omit .Values.redis "enabled")) | nindent 6 }}
+      {{- toYaml (list (omit .Values "enabled")) | nindent 6 }}
