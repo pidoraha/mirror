@@ -3,13 +3,13 @@ helmDefaults:
   createNamespace: false
   timeout: 600
 
-repositories:
-  - name: mirror
-    url: git+https://github.com/pidoraha/mirror@mirror?ref=master
+#repositories:
+#  - name: mirror
+#    url: git+https://github.com/pidoraha/mirror@mirror?ref=master
 
 releases:
   - name: myrelease
-    chart: mirror/mirror
+    chart: mirror
     namespace: {{ .Values.namespace }}
     disableValidation: true
     values:
