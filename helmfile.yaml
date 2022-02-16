@@ -1,0 +1,15 @@
+helmDefaults:
+  recreatePods: true
+  createNamespace: false
+  timeout: 600
+
+releases:
+  - name: myrelease
+    chart: mychart
+    namespace: {{ .Values.namespace }}
+    labels:
+      app: automotive
+    condition: odoo.enabled
+    disableValidation: true
+    values:
+      {{- toYaml (list (omit .Values.redis "enabled")) | nindent 6 }}
