@@ -16,7 +16,7 @@ environments:
 ---
 
 helmfiles:
-  - path: git::ssh://git@github.com:pidoraha/mirror.git@helmfile.yaml?ref=master
+  - path: git::ssh://git@github.com/pidoraha/mirror.git@helmfile.yaml?ref=master
   #- path: git::ssh://git@<mygit>/<myrepo>/<mypath>/charts-<mychart>.git@deploy/helmfile.yaml?ref=master
     selectorsInherited: true
     values:
